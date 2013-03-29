@@ -1,0 +1,5 @@
+Theme name:    Ticket
+Description:   It's your ticket out of here. Built for Anchor CMS by David Darnes.
+Author name:   David Darnes
+Author site:   http://david.darn.es
+License:       http://licence.visualidiot.com
