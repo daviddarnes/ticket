@@ -3,13 +3,13 @@
 	<h1><?php echo article_title(); ?></h1>
 </header>
 <article>
-	<?php echo article_html(); ?>
+	<?php echo article_markdown(); ?>
 </article>
 <footer>
 	<time datetime="<?php echo article_time(); ?>"><?php echo article_date(); ?></time>
 	<small>Filed under <?php echo category_title(); ?></small>
 	<?php if(comments_open()): ?>
-		<section class="comments">
+		<div class="comments">
 			<?php if(has_comments()): ?>
 			<ul>
 				<?php $i = 0; while(comments()): $i++; ?>
@@ -41,7 +41,7 @@
 					<?php echo comment_form_button(); ?>
 				</p>
 			</form>
-		</section>
+		</div>
 	<?php endif; ?>
 </footer>
 <?php theme_include('footer'); ?>
