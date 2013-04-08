@@ -1,12 +1,11 @@
 // Globals
 
 body {
-	background: #111;
-	color: #333;
-	font: 13px/23px 'Oxygen', Tahoma, sans-serif;
+	background: lighten(#ef65b6, 30%);
+	color: darken(#b483b4, 20%);
+	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
-	text-shadow: 0 1px 0 #fff;
 }
 
 // Structure
@@ -14,9 +13,7 @@ body {
 section {
 	max-width: 400px;
 	margin: 100px auto 0 auto;
-	background: #f4f4f4;
-	border: 1px solid lighten(#f4f4f4, 3%);
-	box-shadow: 0 1px 2px #111, inset 0 0 1px 1px darken(#f4f4f4, 3%);
+	background: #ffffff;
 	padding: 20px;
 	border-radius: 3px;
 }
@@ -34,12 +31,8 @@ article, footer {
 	padding-top: .6em;
 }
 
-header, article {
-	border-bottom: 1px solid lighten(#f4f4f4, 3%);
-}
-
 article, footer {
-	border-top: 1px solid darken(#f4f4f4, 3%);
+	border-top: 1px solid darken(#eee3ee, 3%);
 }
 
 .comments {
@@ -106,10 +99,10 @@ p {
 }
 
 a {
-	color: #808000;
+	color: #de76b3;
 	transition: .2s;
 	text-decoration: none;
 	&:hover, &.active {
-		color: lighten(#808000, 7%);
+		color: lighten(#de76b3, 7%);
 	}
 }
