@@ -1,5 +1,11 @@
 // Globals
 
+html, body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+}
+
 body {
 	background: lighten(#ef65b6, 30%);
 	color: darken(#b483b4, 20%);
@@ -10,21 +16,44 @@ body {
 
 // Structure
 
+.logo {
+	font-size: 3em;
+	font-weight: 300;
+	text-align: center;
+	width: 100%;
+	display: block;
+	padding: 1em 0 1.2em 0;
+	a {
+		color: lighten(#ef65b6, 22%);
+	}
+}
+
 section {
 	max-width: 400px;
-	margin: 100px auto 0 auto;
+	margin: 0 auto 4em auto;
 	background: #ffffff;
 	padding: 20px;
 	border-radius: 3px;
 }
 
 nav {
-	text-align: center;
+	float: right;
+	text-align: right;
+	width: 200px;
+	padding-bottom: 20px;
 	a {
-		margin-left: 10px;
-		margin-right: 10px;
+		margin:  0 0 20px 20px;
 		font-weight: 700;
 	}
+}
+
+header {
+	width: 200px;
+	float: left;
+}
+
+article {
+	clear: both;
 }
 
 article, footer {
@@ -32,7 +61,7 @@ article, footer {
 }
 
 article, footer {
-	border-top: 1px solid darken(#eee3ee, 3%);
+	border-top: 1px solid fadeout(#eee3ee, 50%);
 }
 
 .comments {
@@ -58,13 +87,12 @@ h1 {
 	font-size: 2em;
 	line-height: 1.3em;
 	margin-bottom: .4em;
-	text-align: center;
 }
 
 h2 {
 	font-size: 1.8em;
 	line-height: 1.3em;
-	margin-bottom: 1em;
+	padding-bottom: 0.2em;
 }
 
 h3 {
@@ -104,5 +132,39 @@ a {
 	text-decoration: none;
 	&:hover, &.active {
 		color: lighten(#de76b3, 7%);
+	}
+}
+
+// Forms
+
+input, textarea {
+	border: 0;
+	outline: none;
+	background: lighten(#ef65b6, 30%);
+	padding: 0 0 0 1em;
+	margin: 0;
+	border-radius: 0 3px 3px 0;
+	font-size: 1em;
+	line-height: 1.3em;
+	height: 41px;
+	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
+}
+
+label {
+	background: lighten(#ef65b6, 20%);
+	padding: 1em;
+	border-radius: 3px 0 0 3px;
+	font-size: 1em;
+	line-height: 1em;
+	height: 40px;
+}
+
+@media (max-width: 440px) {
+	header, nav {
+		float: none;
+		width: 100%;
+	}
+	section {
+		border-radius: 0;
 	}
 }

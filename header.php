@@ -12,6 +12,7 @@
 		<?php endif; ?>
 	</head>
 	<body>
+		<div class="logo"><a href="<?php echo base_url(); ?>"><?php echo site_name(); ?></a></div>
 		<section>
 			<?php if(has_menu_items()) : ?>
 			<nav>
