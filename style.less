@@ -56,12 +56,9 @@ article {
 	clear: both;
 }
 
-article, footer {
+article, footer, [class*="author-"], .comments {
+	border-top: 1px solid fadeout(#eee3ee, 60%);
 	padding-top: .6em;
-}
-
-article, footer {
-	border-top: 1px solid fadeout(#eee3ee, 50%);
 }
 
 .comments {
@@ -98,32 +95,32 @@ h2 {
 h3 {
 	font-size: 1.2em;
 	line-height: 1.5em;
-	margin-bottom: 1em;
+	padding-bottom: .2em;
 }
 
 h4 {
 	font-style: italic;
 	font-size: 1em;
 	line-height: 1.5em;
-	margin-bottom: 1em;
+	padding-bottom: 1em;
 }
 
 h5 {
 	font-size: .8em;
 	line-height: 1.8em;
-	margin-bottom: 1em;
+	padding-bottom: 1em;
 }
 
 h6 {
 	font-size: .7em;
 	line-height: 1.8em;
-	margin-bottom: 1em;
+	padding-bottom: 1em;
 }
 
 p {
 	font-size: 1em;
 	line-height: 1.8em;
-	margin-bottom: 1em;
+	padding-bottom: 1em;
 }
 
 a {
@@ -135,29 +132,92 @@ a {
 	}
 }
 
+small {
+	margin-bottom: .7em;
+	display: inline-block;
+}
+
 // Forms
 
+form p {
+	display: inline-block;
+	padding-bottom: 1em;
+}
+
 input, textarea {
+	float: left;
+	min-width: 245px;
 	border: 0;
 	outline: none;
 	background: lighten(#ef65b6, 30%);
-	padding: 0 0 0 1em;
+	padding: .5em;
 	margin: 0;
 	border-radius: 0 3px 3px 0;
 	font-size: 1em;
-	line-height: 1.3em;
-	height: 41px;
-	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
+	line-height: 2em;
+	font-family: "Helvetica Neue", "Arial", sans-serif;
+	font-weight: 300;
+	color: darken(#b483b4, 20%);
+}
+
+textarea {
+	border-radius: 0 3px 3px 3px;
+	min-height: 100px;
 }
 
 label {
-	background: lighten(#ef65b6, 20%);
-	padding: 1em;
+	text-align: center;
+	float: left;
+	display: inline-block;
+	background: lighten(#ef65b6, 26%);
+	padding: 0 1em;
 	border-radius: 3px 0 0 3px;
 	font-size: 1em;
-	line-height: 1em;
-	height: 40px;
+	line-height: 3em;
+	min-width: 116px;
 }
+
+::-webkit-input-placeholder {
+   color: lighten(#b483b4, 10%);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: lighten(#b483b4, 10%);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: lighten(#b483b4, 10%);
+}
+
+:-ms-input-placeholder {  
+   color: lighten(#b483b4, 10%);
+}
+
+button[type="submit"] {
+	border: 0;
+	outline: none;
+	background: lighten(#ef65b6, 26%);
+	padding: 0 1em;
+	border-radius: 3px;	
+	font-size: 1em;
+	line-height: 2em;
+	font-family: "Helvetica Neue", "Arial", sans-serif;
+	font-weight: 300;
+	color: darken(#b483b4, 20%);
+	cursor: pointer;
+	transition: .2s;
+	line-height: 3em;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	&:hover {
+		background: lighten(#ef65b6, 20%);
+	}
+	&:active {
+		background: lighten(#ef65b6, 26%);		
+	}
+}
+
+// Mobile
 
 @media (max-width: 440px) {
 	header, nav {
