@@ -43,7 +43,7 @@ nav {
 	padding-bottom: 20px;
 	a {
 		margin:  0 0 20px 20px;
-		font-weight: 700;
+		font-weight: 500;
 	}
 }
 
@@ -56,14 +56,14 @@ article {
 	clear: both;
 }
 
-article, footer, [class*="author-"], .comments {
+article, footer, [class*="author-"], .comments, form, aside {
 	border-top: 1px solid fadeout(#eee3ee, 60%);
 	padding-top: .6em;
 }
 
-.comments {
-	li {
-		list-style: none;
+aside {
+	a {
+		font-weight: 500;
 	}
 }
 
@@ -99,10 +99,11 @@ h3 {
 }
 
 h4 {
-	font-style: italic;
+	font-style: normal;
+	font-weight: 500;
 	font-size: 1em;
 	line-height: 1.5em;
-	padding-bottom: 1em;
+	padding-bottom: .5em;
 }
 
 h5 {
@@ -133,8 +134,13 @@ a {
 }
 
 small {
+	color: lighten(#b483b4, 10%);
 	margin-bottom: .7em;
 	display: inline-block;
+}
+
+ul, li {
+	list-style: none;
 }
 
 // Forms
@@ -150,13 +156,12 @@ input, textarea {
 	border: 0;
 	outline: none;
 	background: lighten(#ef65b6, 30%);
-	padding: .5em;
+	padding: .45em;
 	margin: 0;
 	border-radius: 0 3px 3px 0;
 	font-size: 1em;
-	line-height: 2em;
+	line-height: 2.2em;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
-	font-weight: 300;
 	color: darken(#b483b4, 20%);
 }
 
@@ -189,7 +194,7 @@ label {
    color: lighten(#b483b4, 10%);
 }
 
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
    color: lighten(#b483b4, 10%);
 }
 
@@ -198,22 +203,39 @@ button[type="submit"] {
 	outline: none;
 	background: lighten(#ef65b6, 26%);
 	padding: 0 1em;
-	border-radius: 3px;	
+	border-radius: 3px;
 	font-size: 1em;
 	line-height: 2em;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
-	font-weight: 300;
 	color: darken(#b483b4, 20%);
 	cursor: pointer;
 	transition: .2s;
 	line-height: 3em;
-	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	&:hover {
 		background: lighten(#ef65b6, 20%);
 	}
 	&:active {
-		background: lighten(#ef65b6, 26%);		
+		background: lighten(#ef65b6, 26%);
+	}
+}
+
+// Comments
+
+.comments {
+	p {
+		padding-bottom: .2em;
+	}
+}
+
+.notifications {
+	text-align: center;
+	background: red;
+	margin-bottom: 1em;
+	border-radius: 3px;
+	background: lighten(#ef65b6, 26%);
+	p {
+		padding: .55em;
 	}
 }
 

@@ -12,7 +12,16 @@
 			<p><?php echo article_description(); ?></p>
 		</article>
 	<?php endwhile; ?>
-
+		<aside>
+			<h3><?php echo total_categories() . pluralise_cat(total_categories(), ' Categor'); ?></h3>
+			<ul>
+			<?php while(categories()): ?>
+				<li>
+					<a class="cat-<?php echo category_id(); ?>" href="<?php echo category_url(); ?>" title="<?php echo category_title(); ?>"><?php echo category_title(); ?></a>
+				</li>
+			<?php endwhile; ?>
+			</ul>
+		</aside>
 	<?php if(has_pagination()): ?>
 	<nav class="pagination">
 		<?php echo posts_prev(); ?>
