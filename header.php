@@ -3,6 +3,7 @@
 	<head>
 		<title>Ticket</title>
 		<link href="<?php echo theme_url('style.css'); ?>" media="screen" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="<?php echo theme_url('assets/favicon.ico'); ?>">
 		<?php if(customised()): ?>
 		    <!-- Custom CSS -->
     		<style><?php echo article_css(); ?></style>
