@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Ticket</title>
+		<title>
+			<?php if(is_article()): echo article_title(); else: echo page_title("Page can't be found"); endif; ?> - <?php echo site_name(); ?>
+		</title>
 		<link href="<?php echo theme_url('assets/style.css'); ?>" media="screen" rel="stylesheet" type="text/css" />
 		<link rel="shortcut icon" href="<?php echo theme_url('assets/favicon.ico'); ?>">
 		<?php if(customised()): ?>
