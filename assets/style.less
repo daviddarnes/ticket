@@ -14,6 +14,13 @@ body {
 	text-rendering: optimizelegibility;
 }
 
+hr {
+	clear: both;
+	height: 1px;
+	border: 0;
+	background: fadeout(#eee3ee, 60%);
+}
+
 // Structure
 
 .logo {
@@ -62,6 +69,8 @@ article, footer, [class*="author-"], .comments, form, aside {
 }
 
 aside {
+	width: 200px;
+	float: left;
 	a {
 		font-weight: 500;
 	}
