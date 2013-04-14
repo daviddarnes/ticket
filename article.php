@@ -1,11 +1,24 @@
-<?php theme_include('header'); ?>
+<?php
+	/* Template for for the 404 error page */
+
+	theme_include('header'); // Pull in header.php
+?>
 <header>
-	<h1><?php echo article_title(); ?></h1>
+	<h1><?php /* The title of the single post */ echo article_title(); ?></h1>
 </header>
-<?php $image = article_custom_field('image');
-if ( !empty($image) ) : ?>
-	<img src="<?php echo $image; ?>" alt="<?php echo article_title(); ?>" />
-<?php endif; ?>
+	<?php
+		/*
+			This is to show a custom field from an article.
+			It will need to be created in the metadata section before it can be used in the post edit area.
+			In this case the custom field will need to be called 'image' and be set as an image custom field in the dropdown for type.
+		*/
+		$image = article_custom_field('image'); // Applying a variable to the custom field, so it can be reused with ease
+		if ( !empty($image) ) : // Check if the field is empty, if it is the process stops here
+	?>
+		<img src="<?php /* Echo the result, which in this case is the url of the image */ echo $image; ?>" alt="<?php /* Use the article title as the alt text */ echo article_title(); ?>" />
+	<?php
+		endif; // End of custom field
+	?>
 <article class="article-<?php echo article_id(); ?>">
 	<?php echo article_markdown(); // article_html(); ?>
 </article>
@@ -49,4 +62,6 @@ if ( !empty($image) ) : ?>
 		</div>
 	<?php endif; ?>
 </footer>
-<?php theme_include('footer'); ?>
+<?php
+	theme_include('footer');  // Pull in footer.php
+?>
