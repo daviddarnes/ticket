@@ -1,3 +1,17 @@
+// Mixins
+@backgrounds: #ffffff;
+@copy: #666666;
+@titles: darken(@copy, 10%);
+@links: #610841;
+@borders: lighten(@copy, 55%);
+
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+
 // Globals
 
 html, body {
@@ -7,8 +21,9 @@ html, body {
 }
 
 body {
-	background: lighten(#ef65b6, 30%);
-	color: darken(#b483b4, 20%);
+	background: url(bg.jpg) fixed center center;
+	background-size: cover cover;
+	color: @copy;
 	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
@@ -18,7 +33,7 @@ hr {
 	clear: both;
 	height: 1px;
 	border: 0;
-	background: fadeout(#eee3ee, 60%);
+	background: @borders;
 }
 
 // Structure
@@ -31,14 +46,14 @@ hr {
 	display: block;
 	padding: 1em 0 1.2em 0;
 	a {
-		color: lighten(#ef65b6, 22%);
+		color: fadeout(@links, 30%);
 	}
 }
 
 section {
 	max-width: 400px;
 	margin: 0 auto 4em auto;
-	background: #ffffff;
+	background: @backgrounds;
 	padding: 20px;
 	border-radius: 3px;
 }
@@ -64,7 +79,7 @@ article {
 }
 
 article, footer, [class*="author-"], .comments, form, aside {
-	border-top: 1px solid fadeout(#eee3ee, 60%);
+	border-top: 1px solid @borders;
 	padding-top: .6em;
 }
 
@@ -89,9 +104,14 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 	padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	color: @titles;
+}
+
 h1 {
 	font-size: 2em;
 	line-height: 1.3em;
+	font-weight: 300;
 	margin-bottom: .4em;
 }
 
@@ -134,16 +154,22 @@ p {
 }
 
 a {
-	color: #de76b3;
-	transition: .2s;
+	color: @links;
+	.transition();
 	text-decoration: none;
-	&:hover, &.active {
-		color: lighten(#de76b3, 7%);
+	&:hover {
+		color: lighten(@links, 10%);
+	}
+	&:active {
+		color: darken(@links, 5%);
+	}
+	&.active {
+		color: fadeout(@links, 50%);
 	}
 }
 
 small {
-	color: lighten(#b483b4, 10%);
+	color: lighten(@copy, 20%);
 	margin-bottom: .7em;
 	display: inline-block;
 }
@@ -161,17 +187,21 @@ form p {
 
 input, textarea {
 	float: left;
-	min-width: 245px;
+	min-width: 232px;
 	border: 0;
 	outline: none;
-	background: lighten(#ef65b6, 30%);
-	padding: .45em;
+	background: darken(@backgrounds, 6%);
+	padding: .45em 1em;
 	margin: 0;
 	border-radius: 0 3px 3px 0;
 	font-size: 1em;
 	line-height: 2.2em;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
-	color: darken(#b483b4, 20%);
+	color: lighten(@copy, 10%);
+	.transition();
+	&:focus {
+		background: darken(@backgrounds, 3%);
+	}
 }
 
 textarea {
@@ -180,10 +210,9 @@ textarea {
 }
 
 label {
-	text-align: center;
 	float: left;
 	display: inline-block;
-	background: lighten(#ef65b6, 26%);
+	background: darken(@backgrounds, 10%);
 	padding: 0 1em;
 	border-radius: 3px 0 0 3px;
 	font-size: 1em;
@@ -192,46 +221,49 @@ label {
 }
 
 ::-webkit-input-placeholder {
-   color: lighten(#b483b4, 10%);
+   color: lighten(@copy, 20%);
 }
 
-:-moz-placeholder { /* Firefox 18- */
-   color: lighten(#b483b4, 10%);
+:-moz-placeholder {
+   color: lighten(@copy, 20%);
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: lighten(#b483b4, 10%);
+::-moz-placeholder {
+   color: lighten(@copy, 20%);
 }
 
 :-ms-input-placeholder {
-   color: lighten(#b483b4, 10%);
+   color: lighten(@copy, 20%);
 }
 
 button[type="submit"] {
 	border: 0;
 	outline: none;
-	background: lighten(#ef65b6, 26%);
+	background: darken(@backgrounds, 35%);
 	padding: 0 1em;
 	border-radius: 3px;
 	font-size: 1em;
 	line-height: 2em;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
-	color: darken(#b483b4, 20%);
+	color: @backgrounds;
 	cursor: pointer;
-	transition: .2s;
+	.transition();
 	line-height: 3em;
 	-webkit-font-smoothing: antialiased;
 	&:hover {
-		background: lighten(#ef65b6, 20%);
+		background: darken(@backgrounds, 45%);
 	}
 	&:active {
-		background: lighten(#ef65b6, 26%);
+		background: darken(@backgrounds, 55%);
 	}
 }
 
 // Comments
 
 .comments {
+	li {
+		padding-bottom: .4em;
+	}
 	p {
 		padding-bottom: .2em;
 	}
@@ -257,5 +289,12 @@ button[type="submit"] {
 	}
 	section {
 		border-radius: 0;
+	}
+	input, textarea {
+		width: 93%;
+		border-bottom-left-radius: 3px
+	}
+	label {
+		border-radius: 3px 3px 0 0;
 	}
 }

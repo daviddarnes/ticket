@@ -6,7 +6,7 @@
 	<?php echo page_content(); ?>
 </article>
 <hr/>
-<small><?php echo site_name() . substr(str_replace("/", " / ", base_url()), 0, -3) . " / " . str_replace("/", " / ", page_slug()) // or page_url(); ?></small>
+<small><?php echo site_name() . substr(str_replace("/", " &raquo; ", base_url()), 0, -2) . " " . str_replace("/", " &raquo; ", page_slug()) // or page_url(); ?></small>
 <?php theme_include('footer'); ?>
 
 

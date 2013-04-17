@@ -24,7 +24,7 @@
 </article>
 <footer>
 	<small>Set to <?php echo article_status(); ?>, created <time datetime="<?php echo article_time(); ?>"><?php echo article_date(); ?></time> &amp; filed under <a href="<?php echo article_category_url(); ?>" title="<?php echo article_category(); ?>"><?php echo article_category(); ?></a>
-	<br/><?php echo site_name() . substr(str_replace("/", " / ", base_url()), 0, -3) . " / " . str_replace("/", " / ", current_url()); // or full_url(); ?></small>
+	<br/><?php echo site_name() . substr(str_replace("/", " &raquo; ", base_url()), 0, -2) . " " . str_replace("/", " &raquo; ", current_url()); // or full_url(); ?></small>
 	<div class="author-<?php echo article_author_id(); ?>">
 		<h3>Written by <?php echo article_author(); ?></h3>
 		<p><?php echo article_author_bio(); ?></p>
