@@ -5,8 +5,11 @@ Remember when someone told you "size isn't everything"? Well, they were right. A
 
 That's what Ticket is all about. It's your ticket out of here. Built for Anchor CMS.
 
+Demo: http://demo.anchorthemes.com/ticket/
+
 
 Changelog
 ---------
 
 26/03/13 - I'm busting this out as quickly as possible, bugs are inevitable.
+19/04/13 - Done php, structure is mostly there, needs some pixel pushing and lots of comments to help out others.
