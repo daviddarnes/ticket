@@ -34,8 +34,9 @@
 
 <?php else: // If there was no resultsÉ ?>
 	<form id="search" action="<?php echo search_url(); ?>" method="post">
+		<legend>Use the form below:</legend>
 		<p>
-			<label for="term">Search:</label><input type="search" id="term" name="term" placeholder="To search, type and hit enter&hellip;" value="<?php echo search_term(); ?>">
+			<label for="term">Search term:</label><input type="search" id="term" name="term" placeholder="To search, type and hit enter&hellip;" value="<?php echo search_term(); ?>">
 		</p>
 		<p>
 			<input type="submit" value="Search">
@@ -45,8 +46,6 @@
 		<p class="wrap">Unfortunately, there's no results for &ldquo;<?php echo search_term(); ?>&rdquo;. Did you spell everything correctly?</p>
 	<?php endif; ?>
 <?php endif; ?>
-
-<hr/>
 
 <?php
 	theme_include('footer');  // Pull in footer.php

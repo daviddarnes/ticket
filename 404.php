@@ -14,11 +14,10 @@
 
 		Try the <a href="<?php echo base_url(); // Root url of the install, aka homepage ?>" title="<?php echo site_name(); ?>">homepage</a>
 
-		or try <a href="/search" title="search">searching</a>.
+		or try <a href="<?php echo base_url(); ?>search" title="search">searching</a>.
 	</p>
 </article>
 
-<hr/>
 <?php
 	theme_include('footer');  // Pull in footer.php
 ?>

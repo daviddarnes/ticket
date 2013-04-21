@@ -26,7 +26,9 @@
 	<?php echo article_markdown(); // or article_html(); ?>
 </article>
 
-<footer>
+<hr/>
+
+<section>
 	<small>
 		Set to <?php echo article_status(); // Published or Archived, Draft status mean it won't be shown ?>, created <time datetime="<?php echo date(DATE_W3C, article_time()); // YYYY-MM-DDThh:mm:ss+TZD ?>"><?php echo article_date(); // Dth Month, YYYY ?></time> &amp; filed under <a href="<?php echo article_category_url(); ?>" title="<?php echo article_category(); ?>"><?php echo article_category(); ?></a>
 		<br/>
@@ -55,22 +57,22 @@
 			<form class="comment-form" method="post" action="<?php echo comment_form_url(); ?>#comment">
 				<h3>Leave a comment</h3>
 				<?php echo comment_form_notifications(); // Produces a note for the commenter if he's filled a field in wrong or has suceeded ?>
-				<p class="name">
+				<p>
 					<label for="name">Your name:</label><?php echo comment_form_input_name('placeholder="Your name"'); // Places input field, placeholder option can be passed in ?>
 				</p>
-				<p class="email">
+				<p>
 					<label for="email">Your email address:</label><?php echo comment_form_input_email("placeholder=\"Your email (won't be published)\""); ?>
 				</p>
-				<p class="textarea">
+				<p>
 					<label for="text">Your comment:</label><?php echo comment_form_input_text('placeholder="Your comment"'); ?>
 				</p>
-				<p class="submit">
+				<p>
 					<?php echo comment_form_button(); ?>
 				</p>
 			</form>
 		</div>
 	<?php endif; ?>
-</footer>
+</section>
 
 <?php
 	theme_include('footer');  // Pull in footer.php
