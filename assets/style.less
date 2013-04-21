@@ -74,7 +74,7 @@ header {
 	float: left;
 }
 
-article {
+article, form, footer {
 	clear: both;
 }
 
@@ -183,9 +183,11 @@ ul, li {
 form p {
 	display: inline-block;
 	padding-bottom: 1em;
+	clear: both;
 }
 
 input, textarea {
+	-webkit-appearance: none;
 	float: left;
 	min-width: 232px;
 	border: 0;
@@ -202,6 +204,11 @@ input, textarea {
 	&:focus {
 		background: darken(@backgrounds, 3%);
 	}
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	display: none;
 }
 
 textarea {
@@ -236,7 +243,8 @@ label {
    color: lighten(@copy, 20%);
 }
 
-button[type="submit"] {
+input[type="submit"], button[type="submit"] {
+	min-width: inherit;
 	border: 0;
 	outline: none;
 	background: darken(@backgrounds, 35%);

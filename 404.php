@@ -1,5 +1,5 @@
 <?php
-	/* Template for for the 404 error page */
+	// Template for for the 404 error page
 
 	theme_include('header'); // Pull in header.php
 ?>
@@ -8,9 +8,9 @@
 </header>
 <article>
 	<p>
-		Oh dear, <code>/<?php /* The slug of the page */ echo current_url(); ?></code> wasn't found.
+		Oh dear, <code>/<?php echo current_url(); // The url in the address bar, minus the base_url(); ?></code> wasn't found.
 
-		Try the <a href="<?php /* Link to the homepage */ echo base_url(); ?>" title="<?php /* Name of the site */ echo site_name(); ?>">homepage</a>
+		Try the <a href="<?php echo base_url(); // Root url of the install, aka homepage ?>" title="<?php echo site_name(); ?>">homepage</a>
 
 		or try <a href="/search" title="search">searching</a>.
 	</p>
