@@ -15,13 +15,14 @@
 
 <?php // Search results acts similar to the post loop
 	if(has_search_results() and (!empty($term))) : // If there are results for the search and something has been searched forÉ ?>
-	<article>
 		<?php while(search_results()): // While you have those resultsÉ ?>
-			<h2>
-				<a href="<?php echo article_url(); ?>" title="<?php echo article_title(); ?>"><?php echo article_title(); ?></a>
-			</h2>
+			<article>
+				<h2>
+					<a href="<?php echo article_url(); ?>" title="<?php echo article_title(); ?>"><?php echo article_title(); ?></a>
+				</h2>
+				<p><?php echo article_description(); ?></p>
+			</article>
 		<?php endwhile; // End if while ?>
-	</article>
 	<?php if(has_pagination()): // Same as post.php pagination ?>
 	<nav class="pagination">
 		<div class="wrap">

@@ -22,7 +22,7 @@
 		<div class="logo"><a href="<?php echo base_url(); // Root url of the install, aka homepage ?>"><?php echo site_name(); ?></a></div>
 		<section>
 			<?php if(has_menu_items()) : // Acts like article loop ?>
-			<nav>
+			<nav role="main">
 				<?php while(menu_items()): ?>
 					<a <?php echo (menu_active() ? 'class="active"' : ''); // Adds an 'active' class to allow styling ?> id="menu-item-<?php echo menu_id(); ?>" href="<?php echo menu_url(); ?>" title="<?php echo menu_title(); // Title of the page ?>"><?php echo menu_name(); // Name of the page ?></a>
 				<?php endwhile; ?>

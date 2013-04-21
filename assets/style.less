@@ -1,9 +1,11 @@
-// Mixins
+//// Mixins
 @backgrounds: #ffffff;
 @copy: #666666;
 @titles: darken(@copy, 10%);
 @links: #610841;
 @borders: lighten(@copy, 55%);
+@success: #00B800;
+@error: #ff0000;
 
 .transition(@duration:0.2s, @ease:ease-out) {
   -webkit-transition: all @duration @ease;
@@ -12,8 +14,14 @@
   transition: all @duration @ease;
 }
 
-// Globals
+.border-radius(@corners: 3px) {
+  -webkit-border-radius: @corners;
+  -moz-border-radius: @corners;
+  -o-border-radius: @corners;
+  border-radius: @corners;
+}
 
+//// Globals
 html, body {
 	margin: 0;
 	padding: 0;
@@ -25,19 +33,14 @@ body {
 	background-size: cover cover;
 	color: @copy;
 	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
+	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
 }
 
-hr {
-	clear: both;
-	height: 1px;
-	border: 0;
-	background: @borders;
-}
-
-// Structure
-
+//// Structure
+// Title outside wrapper
 .logo {
 	font-size: 3em;
 	font-weight: 300;
@@ -47,88 +50,100 @@ hr {
 	padding: 1em 0 1.2em 0;
 	a {
 		color: fadeout(@links, 30%);
+		font-weight: 300;
 	}
 }
-
+// Site wrapper
 section {
 	max-width: 400px;
 	margin: 0 auto 4em auto;
 	background: @backgrounds;
 	padding: 20px;
-	border-radius: 3px;
+	clear: both;
+	.border-radius();
 }
 
+// Top nav
 nav {
 	float: right;
 	text-align: right;
-	width: 200px;
-	padding-bottom: 20px;
+	padding-bottom: 1.2em;
 	a {
-		margin:  0 0 20px 7px;
-		font-weight: 500;
+		margin-left: .55em;
+		padding-bottom: .55em;
 	}
 }
 
-header {
+// Column width (half the site width)
+header, nav, aside {
 	width: 200px;
-	float: left;
 }
 
-article, form, footer {
+// Nothing that comes after these are getting past
+article, form, footer, hr {
 	clear: both;
 }
 
+// Left positioned things
+header, aside, input, textarea, label {
+	float: left;
+}
+
+// Right positioned things
+nav {
+	float: right;
+}
+
+// Divider line
 article, footer, [class*="author-"], .comments, form, aside {
 	border-top: 1px solid @borders;
 	padding-top: .6em;
 }
 
-aside {
-	width: 200px;
-	float: left;
-	a {
-		font-weight: 500;
-	}
-}
-
-// Graphics
+// Makes images go flush to the width of the site
 article img {
 	margin: -20px 0;
 }
 
-// Typography
-
-h1, h2, h3, h4, h5, h6, p, ul, li {
-	font-weight: 400;
+//// Typography
+// Reset (avoid any weird positioning and italics)
+h1, h2, h3, h4, h5, h6, p, a, small, ul, li, blockquote, code, strong, input, textarea {
 	margin: 0;
 	padding: 0;
+	font-style: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: @titles;
+	font-weight: 400;
+	// Keeps weight for linked headings
+	a {
+		font-weight: inherit;
+	}
 }
 
 h1 {
+	font-weight: 300;
 	font-size: 2em;
 	line-height: 1.3em;
-	font-weight: 300;
-	margin-bottom: .4em;
+	padding-bottom: .2em;
 }
 
 h2 {
+	font-weight: 400;
 	font-size: 1.8em;
 	line-height: 1.3em;
 	padding-bottom: 0.2em;
 }
 
 h3 {
+	font-weight: 400;
 	font-size: 1.2em;
 	line-height: 1.5em;
 	padding-bottom: .2em;
 }
 
 h4 {
-	font-style: normal;
 	font-weight: 500;
 	font-size: 1em;
 	line-height: 1.5em;
@@ -136,12 +151,17 @@ h4 {
 }
 
 h5 {
+	font-weight: 400;
 	font-size: .8em;
 	line-height: 1.8em;
 	padding-bottom: 1em;
 }
 
+// Optional caption type
 h6 {
+	color: lighten(@copy, 10%);
+	font-style: italic;
+	font-weight: 300;
 	font-size: .7em;
 	line-height: 1.8em;
 	padding-bottom: 1em;
@@ -154,79 +174,133 @@ p {
 }
 
 a {
+	font-weight: 500;
 	color: @links;
 	.transition();
 	text-decoration: none;
+	// Bright purple
 	&:hover {
 		color: lighten(@links, 10%);
 	}
+	// Dark purple
 	&:active {
 		color: darken(@links, 5%);
 	}
+	// Faded purple (used in menu)
 	&.active {
 		color: fadeout(@links, 50%);
 	}
 }
 
+// Footer meta info (timestamp, category and breadcrumb)
 small {
+	font-weight: 400;
 	color: lighten(@copy, 20%);
 	margin-bottom: .7em;
 	display: inline-block;
+	// Keep links in check in smalls
+	a {
+		font-weight: inherit;
+	}
 }
 
-ul, li {
-	list-style: none;
+ul {
+	padding: 0 0 1em 1.3em;
+	list-style: disc;
+	li {
+		color: @copy;
+		padding-bottom: .2em;
+		line-height: 1.7em;
+	}
 }
 
-// Forms
+// Massive quotes
+blockquote {
+	margin: 0;
+	padding: 1em;
+	font-weight: 300;
+	font-size: 2em;
+	color: lighten(@copy, 20%);
+	// Paragraph inside quotes needs resetting
+	p {
+		padding: 0;
+		line-height: 1.2em;
+	}
+}
 
+// Subtle border and background to give focus to code snippets
+code {
+	font-family: Courier New, Courier, monospace;
+	border: 1px solid lighten(@copy, 50%);
+	background: lighten(@copy, 58%);
+	.border-radius();
+	padding: .2em .4em;
+}
+
+// Make sure its bold
+strong {
+	font-weight: 500;
+}
+
+// Thin subtle line
+hr {
+	height: 1px;
+	border: 0;
+	background: @borders;
+}
+
+//// Forms
+// Used to split fields apart
 form p {
 	display: inline-block;
 	padding-bottom: 1em;
 	clear: both;
 }
 
+// Style inspired by Anchor CMS fields
 input, textarea {
-	-webkit-appearance: none;
-	float: left;
-	min-width: 232px;
+	-webkit-appearance: none; // Stop webkit ugly styling
+	min-width: 232px; // Keeps fields going full width
 	border: 0;
 	outline: none;
 	background: darken(@backgrounds, 6%);
-	padding: .43em 1em;
-	margin: 0;
-	border-radius: 0 3px 3px 0;
-	font-size: 1em;
+	padding: .42em 1em;
+	.border-radius(0 3px 3px 0);
 	line-height: 2.2em;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
 	color: lighten(@copy, 10%);
 	.transition();
+	// Slightly lighter when typing in the field
 	&:focus {
 		background: darken(@backgrounds, 3%);
 	}
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-	display: none;
+// Clears webkit styling for search field
+input[type="search"] {
+	min-width: 258px;
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-decoration {
+		display: none;
+	}
 }
 
 textarea {
-	border-radius: 0 3px 3px 3px;
-	min-height: 100px;
+	.border-radius(0 3px 3px 3px);
+	min-height: 100px; // Big enough to write in comfortably
 }
 
+// Matching labels next to fields, flush to each other
 label {
-	float: left;
 	display: inline-block;
 	background: darken(@backgrounds, 10%);
 	padding: 0 1em;
-	border-radius: 3px 0 0 3px;
-	font-size: 1em;
+	.border-radius(3px 0 0 3px);
 	line-height: 3em;
 	min-width: 116px;
 }
 
+// Nice placeholder colour
 ::-webkit-input-placeholder {
    color: lighten(@copy, 20%);
 }
@@ -243,53 +317,82 @@ label {
    color: lighten(@copy, 20%);
 }
 
+// Dark but not loud buttons
 input[type="submit"], button[type="submit"] {
 	min-width: inherit;
 	border: 0;
 	outline: none;
 	background: darken(@backgrounds, 35%);
 	padding: 0 1em;
+	margin: 0;
 	border-radius: 3px;
-	font-size: 1em;
 	line-height: 2em;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
 	color: @backgrounds;
 	cursor: pointer;
 	.transition();
 	line-height: 3em;
-	-webkit-font-smoothing: antialiased;
+	// Darken on holder
 	&:hover {
 		background: darken(@backgrounds, 45%);
 	}
+	// Even darker on click
 	&:active {
 		background: darken(@backgrounds, 55%);
 	}
 }
 
-// Comments
+// Match fields up with everything else
+label, input, textarea, button {
+	font-size: 1em;
+}
 
+//// Comments
 .comments {
+	// Title needs to take a step back from comments
+	h3 {
+		color: lighten(@copy, 10%);
+	}
+	// Clear general styling for lists
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	// Keep comments apart
 	li {
 		padding-bottom: .4em;
 	}
+	// Keep the timestamp close
 	p {
 		padding-bottom: .2em;
 	}
 }
 
+// Notes for comment form user
 .notifications {
 	text-align: center;
-	background: red;
-	margin-bottom: 1em;
-	border-radius: 3px;
-	background: lighten(#ef65b6, 26%);
 	p {
-		padding: .55em;
+		display: block;
+		width: 100%;
+		padding: .55em 0;
+		margin-bottom: .75em;
+		.border-radius();
+		background: darken(@backgrounds, 10%);
+		border: 1px solid darken(@backgrounds, 30%);
+		// Its worked
+		&.success {
+			background: lighten(@success, 60%);
+			border: 1px solid @success;
+		}
+		// Its not worked
+		&.error {
+			background: lighten(@error, 45%);
+			border: 1px solid @error;
+		}
 	}
 }
 
-// Mobile
-
+//// Mobile
 @media (max-width: 440px) {
 	header, nav {
 		float: none;
@@ -300,9 +403,15 @@ input[type="submit"], button[type="submit"] {
 	}
 	input, textarea {
 		width: 93%;
-		border-bottom-left-radius: 3px
+		.border-radius(0 3px 3px 3px);
+	}
+	input[type="submit"] {
+		width: auto;
+	}
+	input[type="search"] {
+		width: 100%;
 	}
 	label {
-		border-radius: 3px 3px 0 0;
+		.border-radius(3px 3px 0 0)
 	}
 }
