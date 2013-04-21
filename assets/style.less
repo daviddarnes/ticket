@@ -41,7 +41,7 @@ html, body {
 }
 
 body {
-	background: url(bg.jpg) fixed center center;
+	background: url(bg.jpg) center center;
 	background-size: cover cover;
 	color: @copy;
 	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
@@ -49,6 +49,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
+	-webkit-text-size-adjust: none;
 }
 
 
@@ -432,7 +433,7 @@ label, input, textarea, button {
 
 //// Mobile
 @media (max-width: 440px) {
-	header, nav {
+	header, nav, aside {
 		float: none;
 		width: 100%;
 	}
