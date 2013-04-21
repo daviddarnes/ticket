@@ -1,6 +1,6 @@
 <?php
 
-// Super powers go in here.
+// Super powers go in here
 
 // Pluralise words if the value equals more than 1
 function pluralise($amount, $str, $alt = '') {

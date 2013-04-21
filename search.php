@@ -3,6 +3,7 @@
 
 	theme_include('header'); // Pull in header.php
 ?>
+
 <header>
 	<?php $term = search_term(); // Whatever the searcher is looking for, added to the variable term
 		if (empty($term)) : // If nothing has been searched forÉ ?>
@@ -11,6 +12,7 @@
 		<h1>Results for &ldquo;<?php echo search_term(); ?>&rdquo;</h1>
 	<?php endif; // End of title ?>
 </header>
+
 <?php // Search results acts similar to the post loop
 	if(has_search_results() and (!empty($term))) : // If there are results for the search and something has been searched forÉ ?>
 	<article>
@@ -42,8 +44,9 @@
 		<p class="wrap">Unfortunately, there's no results for &ldquo;<?php echo search_term(); ?>&rdquo;. Did you spell everything correctly?</p>
 	<?php endif; ?>
 <?php endif; ?>
-<footer>
-</footer>
+
+<hr/>
+
 <?php
 	theme_include('footer');  // Pull in footer.php
 ?>

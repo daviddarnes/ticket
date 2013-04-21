@@ -1,10 +1,13 @@
 <?php
 	// Template for for articles
+
 	theme_include('header'); // Pull in header.php
 ?>
+
 <header>
 	<h1><?php echo article_title(); // The title of the single post ?></h1>
 </header>
+
 	<?php
 		/*
 			This is to show a custom field from an article.
@@ -18,12 +21,19 @@
 	<?php
 		endif; // End of custom field
 	?>
+
 <article class="article-<?php echo article_id(); ?>">
 	<?php echo article_markdown(); // or article_html(); ?>
 </article>
+
 <footer>
-	<small>Set to <?php echo article_status(); // Published or Archived, Draft status mean it won't be shown ?>, created <time datetime="<?php echo date(DATE_W3C, article_time()); // YYYY-MM-DDThh:mm:ss+TZD ?>"><?php echo article_date(); // Dth Month, YYYY ?></time> &amp; filed under <a href="<?php echo article_category_url(); ?>" title="<?php echo article_category(); ?>"><?php echo article_category(); ?></a>
-	<br/><?php echo site_name() . substr(str_replace("/", " &raquo; ", base_url()), 0, -2) . " " . str_replace("/", " &raquo; ", current_url()); // or full_url(); ?></small>
+	<small>
+		Set to <?php echo article_status(); // Published or Archived, Draft status mean it won't be shown ?>, created <time datetime="<?php echo date(DATE_W3C, article_time()); // YYYY-MM-DDThh:mm:ss+TZD ?>"><?php echo article_date(); // Dth Month, YYYY ?></time> &amp; filed under <a href="<?php echo article_category_url(); ?>" title="<?php echo article_category(); ?>"><?php echo article_category(); ?></a>
+		<br/>
+		<?php
+		// Breadcrumb using site_name(), base_url() and current_url()
+		echo site_name() . substr(str_replace("/", " &raquo; ", base_url()), 0, -2) . " " . str_replace("/", " &raquo; ", current_url()); // or full_url(); ?>
+	</small>
 	<div class="author-<?php echo article_author_id(); ?>">
 		<h3>Written by <?php echo article_author(); ?></h3>
 		<p><?php echo article_author_bio(); // Author info is all taken from the user info in the admin ?></p>
@@ -61,6 +71,7 @@
 		</div>
 	<?php endif; ?>
 </footer>
+
 <?php
 	theme_include('footer');  // Pull in footer.php
 ?>

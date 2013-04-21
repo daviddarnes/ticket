@@ -4,7 +4,7 @@
 	<head>
 		<title>
 			<?php
-				/* Perfect title format, 'Article Title - Site Name' or 'Page Title - Site Name' */
+				// Perfect title format, 'Article Title - Site Name' or 'Page Title - Site Name'
 				if(is_article()): echo article_title(); else: echo page_title("Page can't be found"); endif; echo " - " . site_name();
 			?>
 		</title>

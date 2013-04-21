@@ -1,4 +1,9 @@
-<?php theme_include('header'); ?>
+<?php
+	// Template for for the Posts page
+
+	theme_include('header'); // Pull in header.php
+?>
+
 <header>
 	<h1><?php echo page_title(); ?></h1>
 </header>
@@ -15,28 +20,33 @@
 		</article>
 	<?php endwhile; // End of while ?>
 <?php endif; // End of if and and loop ?>
-		<aside>
-			<h3>Categories</h3>
-			<ul>
-			<?php while(categories()): // Loops through all categories ?>
-				<li>
-					<a class="cat-<?php echo category_id(); ?>" href="<?php echo category_url(); ?>" title="<?php echo category_title(); ?>"><?php echo category_title(); ?></a>
-				</li>
-			<?php endwhile; ?>
-			</ul>
-		</aside>
-		<aside>
-			<h3>Statistics</h3>
-			<ul>
-				<li><?php echo total_posts() . pluralise(total_posts(), ' Post'); ?> in total</li>
-				<li><?php echo total_categories() . pluralise_cat(total_categories(), ' Categor'); ?> in total</li>
-			</ul>
-		</aside>
-	<?php if(has_pagination()): // Displays if amount of posts exceeds the chosen Posts per page option, Admin > Extend > Site Metadata ?>
-	<nav class="pagination">
-		<?php echo posts_prev(); ?>
-		<?php echo posts_next(); ?>
-	</nav>
-	<?php endif; ?>
 
-<?php theme_include('footer'); ?>
+<aside>
+	<h3>Categories</h3>
+	<ul>
+	<?php while(categories()): // Loops through all categories ?>
+		<li>
+			<a class="cat-<?php echo category_id(); ?>" href="<?php echo category_url(); ?>" title="<?php echo category_title(); ?>"><?php echo category_title(); ?></a>
+		</li>
+	<?php endwhile; ?>
+	</ul>
+</aside>
+
+<aside>
+	<h3>Statistics</h3>
+	<ul>
+		<li><?php echo total_posts() . pluralise(total_posts(), ' Post'); ?> in total</li>
+		<li><?php echo total_categories() . pluralise_cat(total_categories(), ' Categor'); ?> in total</li>
+	</ul>
+</aside>
+
+<?php if(has_pagination()): // Displays if amount of posts exceeds the chosen Posts per page option, Admin > Extend > Site Metadata ?>
+<nav class="pagination">
+	<?php echo posts_prev(); ?>
+	<?php echo posts_next(); ?>
+</nav>
+<?php endif; ?>
+
+<?php
+	theme_include('footer');  // Pull in footer.php
+?>
