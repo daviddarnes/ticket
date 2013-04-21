@@ -9,7 +9,14 @@
 			?>
 		</title>
 		<link href="<?php echo theme_url('assets/style.css'); ?>" media="screen" rel="stylesheet" type="text/css" />
-		<link rel="shortcut icon" href="<?php echo theme_url('assets/favicon.ico'); ?>">
+		<link rel="shortcut icon" href="<?php echo theme_url('assets/favicon.ico'); ?>" type="image/x-icon">
+
+		<!-- General meta -->
+		<meta name="description" content="<?php echo site_description(); ?>">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="generator" content="Anchor CMS">
+
 		<?php if(customised()): // If the author added any code to the CSS or JS fields ?>
 		    <!-- Custom CSS -->
     		<style><?php echo article_css(); ?></style>
