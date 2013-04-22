@@ -303,8 +303,10 @@ article, footer, [class*="author-"], .comments, form, aside {
 }
 
 // Makes images go flush to the width of the site
-article img {
-	margin: -20px 0;
+article {
+	img {
+		margin: 0 -20px;
+	}
 }
 
 
@@ -318,13 +320,13 @@ form p {
 
 // Style inspired by Anchor CMS fields
 input, textarea {
-	-webkit-appearance: none; // Stop webkit ugly styling
+	-webkit-appearance: textfield; // Stop webkit ugly styling
 	min-width: 231px; // Keeps fields going full width
 	min-height: 29px; // Keeps fields in check in Firefox
 	border: 0;
 	outline: none;
 	background: darken(@backgrounds, 6%);
-	padding: .405em 1em;
+	padding: .39em 1em;
 	.border-radius(0 3px 3px 0);
 	line-height: 2.3em;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
@@ -338,7 +340,6 @@ input, textarea {
 
 // Clears webkit styling for search field (#term is for Firefox, which doesn't recognise type=search for some reason)
 input[type="search"], #term {
-	min-height: 29px;
 	&::-webkit-search-cancel-button,
 	&::-webkit-search-decoration {
 		display: none;

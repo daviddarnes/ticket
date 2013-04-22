@@ -8,6 +8,8 @@
 	<h1><?php echo article_title(); // The title of the single post ?></h1>
 </header>
 
+<article class="article-<?php echo article_id(); ?>">
+
 	<?php
 		/*
 			This is to show a custom field from an article.
@@ -22,7 +24,6 @@
 		endif; // End of custom field
 	?>
 
-<article class="article-<?php echo article_id(); ?>">
 	<?php echo article_markdown(); // or article_html(); ?>
 </article>
 
