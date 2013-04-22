@@ -17,7 +17,7 @@ Licence: http://licence.visualidiot.com
 @borders: lighten(@copy, 55%);
 @success: #00B800;
 @error: #ff0000;
-@shadows: #000000;
+@shadows: fadeout(#000000, 70%);
 
 .transition(@duration:0.2s, @ease:ease-out) {
   -webkit-transition: all @duration @ease;
@@ -31,6 +31,13 @@ Licence: http://licence.visualidiot.com
   -moz-border-radius: @corners;
   -o-border-radius: @corners;
   border-radius: @corners;
+}
+
+.box-shadow(@shadow: 0 1px 4px @shadows) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  -o-box-shadow: @shadow;
+  box-shadow: @shadow;
 }
 
 
@@ -220,7 +227,7 @@ body {
 	width: 100%;
 	display: block;
 	padding: 1em 0 1.2em 0;
-	text-shadow: 0 1px 4px fadeout(@shadows, 70%);
+	text-shadow: 0 1px 4px @shadows;
 	a {
 		font-weight: 300;
 		color: fadeout(@backgrounds, 40%);
@@ -241,11 +248,13 @@ section {
 	padding: 20px;
 	clear: both;
 	.border-radius();
+	.box-shadow();
 	// Reset for article sections
 	section {
 		margin: 0;
 		padding: 0;
 		padding: 0 0 .6em;
+		.box-shadow(none);
 	}
 }
 
@@ -310,13 +319,14 @@ form p {
 // Style inspired by Anchor CMS fields
 input, textarea {
 	-webkit-appearance: none; // Stop webkit ugly styling
-	min-width: 232px; // Keeps fields going full width
+	min-width: 231px; // Keeps fields going full width
+	min-height: 29px; // Keeps fields in check in Firefox
 	border: 0;
 	outline: none;
 	background: darken(@backgrounds, 6%);
-	padding: .42em 1em;
+	padding: .405em 1em;
 	.border-radius(0 3px 3px 0);
-	line-height: 2.2em;
+	line-height: 2.3em;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
 	color: lighten(@copy, 10%);
 	.transition();
@@ -326,9 +336,9 @@ input, textarea {
 	}
 }
 
-// Clears webkit styling for search field
-input[type="search"] {
-	min-width: 258px;
+// Clears webkit styling for search field (#term is for Firefox, which doesn't recognise type=search for some reason)
+input[type="search"], #term {
+	min-height: 29px;
 	&::-webkit-search-cancel-button,
 	&::-webkit-search-decoration {
 		display: none;
@@ -370,10 +380,11 @@ label {
 // Dark but not loud buttons
 input[type="submit"], button[type="submit"] {
 	min-width: inherit;
+	min-height: 40px; // Keeps buttons in check on Firefox
 	border: 0;
 	outline: none;
 	background: darken(@backgrounds, 35%);
-	padding: 0 1em;
+	padding: 0 1.2em;
 	margin: 0;
 	border-radius: 3px;
 	line-height: 2em;

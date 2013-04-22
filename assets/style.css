@@ -207,11 +207,19 @@ section {
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.30000000000000004);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.30000000000000004);
+  -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.30000000000000004);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.30000000000000004);
 }
 section section {
   margin: 0;
   padding: 0;
   padding: 0 0 .6em;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
 }
 nav {
   float: right;
@@ -270,16 +278,17 @@ form p {
 input,
 textarea {
   -webkit-appearance: none;
-  min-width: 232px;
+  min-width: 231px;
+  min-height: 29px;
   border: 0;
   outline: none;
   background: #f0f0f0;
-  padding: .42em 1em;
+  padding: .405em 1em;
   -webkit-border-radius: 0 3px 3px 0;
   -moz-border-radius: 0 3px 3px 0;
   -o-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
-  line-height: 2.2em;
+  line-height: 2.3em;
   font-family: "Helvetica Neue", "Arial", sans-serif;
   color: #808080;
   -webkit-transition: all 0.2s ease-out;
@@ -291,11 +300,14 @@ input:focus,
 textarea:focus {
   background: #f7f7f7;
 }
-input[type="search"] {
-  min-width: 258px;
+input[type="search"],
+#term {
+  min-height: 29px;
 }
 input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+#term::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+#term::-webkit-search-decoration {
   display: none;
 }
 textarea {
@@ -331,10 +343,11 @@ label {
 input[type="submit"],
 button[type="submit"] {
   min-width: inherit;
+  min-height: 40px;
   border: 0;
   outline: none;
   background: #a6a6a6;
-  padding: 0 1em;
+  padding: 0 1.2em;
   margin: 0;
   border-radius: 3px;
   line-height: 2em;
