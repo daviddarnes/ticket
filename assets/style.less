@@ -17,6 +17,7 @@ Licence: http://licence.visualidiot.com
 @borders: lighten(@copy, 55%);
 @success: #00B800;
 @error: #ff0000;
+@shadows: #000000;
 
 .transition(@duration:0.2s, @ease:ease-out) {
   -webkit-transition: all @duration @ease;
@@ -32,106 +33,6 @@ Licence: http://licence.visualidiot.com
   border-radius: @corners;
 }
 
-
-//// Globals
-html, body {
-	margin: 0;
-	padding: 0;
-	min-height: 100%;
-}
-
-body {
-	background: url(bg.jpg) center center;
-	background-size: cover cover;
-	color: @copy;
-	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
-	font-weight: 400;
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
-	text-rendering: optimizelegibility;
-	-webkit-text-size-adjust: none;
-}
-
-
-//// Structure
-// Title outside wrapper
-.logo {
-	font-size: 3em;
-	font-weight: 300;
-	text-align: center;
-	width: 100%;
-	display: block;
-	padding: 1em 0 1.2em 0;
-	a {
-		color: fadeout(@links, 30%);
-		font-weight: 300;
-	}
-}
-
-// Site wrapper
-section {
-	max-width: 400px;
-	margin: 0 auto 4em auto;
-	background: @backgrounds;
-	padding: 20px;
-	clear: both;
-	.border-radius();
-	// Reset for article sections
-	section {
-		margin: 0;
-		padding: 0;
-		padding: 0 0 .6em;
-	}
-}
-
-// Top nav
-nav {
-	float: right;
-	text-align: right;
-	padding-bottom: 1.2em;
-	a {
-		margin-left: .55em;
-		padding-bottom: .55em;
-	}
-}
-
-// Column width (half the site width)
-header, nav, aside {
-	width: 200px;
-}
-
-// Nothing that comes after these are getting past
-article, form, footer, hr {
-	clear: both;
-}
-
-// Left positioned things
-header, aside, input, textarea, label {
-	float: left;
-}
-
-footer {
-	min-height: 24px;
-	small {
-		margin-bottom: 0;
-	}
-}
-
-// Right positioned things
-nav, .credit {
-	float: right;
-}
-
-// Divider line
-article, footer, [class*="author-"], .comments, form, aside {
-	border-top: 1px solid @borders;
-	padding-top: .6em;
-}
-
-// Makes images go flush to the width of the site
-article img {
-	margin: -20px 0;
-}
 
 //// Typography
 // Reset (avoid any weird positioning and italics)
@@ -154,7 +55,7 @@ h1 {
 	font-weight: 300;
 	font-size: 2em;
 	line-height: 1.3em;
-	padding-bottom: .2em;
+	padding-bottom: .5em;
 }
 
 h2 {
@@ -224,7 +125,7 @@ a {
 small {
 	font-weight: 400;
 	color: lighten(@copy, 20%);
-	margin-bottom: .7em;
+	margin-bottom: 1.2em;
 	display: inline-block;
 	// Keep links in check in smalls
 	a {
@@ -240,6 +141,10 @@ ul {
 		padding-bottom: .2em;
 		line-height: 1.7em;
 	}
+}
+
+aside ul {
+	padding-bottom: 0;
 }
 
 // Massive quotes
@@ -275,6 +180,7 @@ hr {
 	height: 1px;
 	border: 0;
 	background: @borders;
+	margin: 0 0 1em;
 }
 
 // Credits
@@ -283,6 +189,113 @@ hr {
 	&:hover {
 		color: darken(@copy, 20%);
 	}
+}
+
+
+//// Globals
+html, body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+}
+
+body {
+	background: darken(@links, 5%) url(bg.jpg) center;
+	background-size: cover;
+	color: @copy;
+	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+	-webkit-text-size-adjust: none;
+}
+
+
+//// Structure
+// Title outside wrapper
+.logo {
+	font-size: 3em;
+	text-align: center;
+	width: 100%;
+	display: block;
+	padding: 1em 0 1.2em 0;
+	text-shadow: 0 1px 4px fadeout(@shadows, 70%);
+	a {
+		font-weight: 300;
+		color: fadeout(@backgrounds, 40%);
+		&:hover {
+			color: @backgrounds;
+		}
+		&:active {
+			color: fadeout(@backgrounds, 20%);
+		}
+	}
+}
+
+// Site wrapper
+section {
+	max-width: 400px;
+	margin: 0 auto 4em auto;
+	background: @backgrounds;
+	padding: 20px;
+	clear: both;
+	.border-radius();
+	// Reset for article sections
+	section {
+		margin: 0;
+		padding: 0;
+		padding: 0 0 .6em;
+	}
+}
+
+// Top nav
+nav {
+	float: right;
+	text-align: right;
+	padding-bottom: 1.2em;
+	a {
+		margin-left: .55em;
+		padding-bottom: .55em;
+	}
+}
+
+// Column width (half the site width)
+header, nav, aside {
+	width: 200px;
+}
+
+// Nothing that comes after these are getting past
+article, form, footer, hr {
+	clear: both;
+}
+
+// Left positioned things
+header, aside, input, textarea, label {
+	float: left;
+}
+
+footer {
+	min-height: 24px;
+	small {
+		margin-bottom: 0;
+	}
+}
+
+// Right positioned things
+nav, .credit {
+	float: right;
+}
+
+// Divider line
+article, footer, [class*="author-"], .comments, form, aside {
+	border-top: 1px solid @borders;
+	padding: 1em 0 .8em;
+}
+
+// Makes images go flush to the width of the site
+article img {
+	margin: -20px 0;
 }
 
 
