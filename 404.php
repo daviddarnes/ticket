@@ -19,5 +19,5 @@
 </article>
 
 <?php
-	theme_include('footer');  // Pull in footer.php
+	theme_include('footer'); // Pull in footer.php
 ?>

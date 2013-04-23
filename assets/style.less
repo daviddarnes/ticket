@@ -41,6 +41,26 @@ Licence: http://licence.visualidiot.com
 }
 
 
+//// Globals
+html, body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+}
+
+body {
+	background: darken(@links, 5%) url(bg.jpg) center;
+	background-size: cover;
+	color: @copy;
+	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+	-webkit-text-size-adjust: none;
+}
+
+
 //// Typography
 // Reset (avoid any weird positioning and italics)
 h1, h2, h3, h4, h5, h6, p, a, small, ul, li, blockquote, code, strong, input, textarea {
@@ -198,24 +218,14 @@ hr {
 	}
 }
 
-
-//// Globals
-html, body {
-	margin: 0;
-	padding: 0;
-	min-height: 100%;
-}
-
-body {
-	background: darken(@links, 5%) url(bg.jpg) center;
-	background-size: cover;
-	color: @copy;
-	font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
-	font-weight: 400;
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
-	text-rendering: optimizelegibility;
-	-webkit-text-size-adjust: none;
+// Selection
+::selection {
+	background: @links; // Safari
+	color: @backgrounds;
+	}
+::-moz-selection {
+	background: @links; // Firefox
+	color: @backgrounds;
 }
 
 
@@ -303,10 +313,12 @@ article, footer, [class*="author-"], .comments, form, aside {
 }
 
 // Makes images go flush to the width of the site
-article {
+figure {
+	margin: 0 -20px;
+	padding: .6em 0;
 	img {
-		margin: 0 -20px;
-		padding: .6em 0;
+		width: 100%;
+		height: auto;
 	}
 }
 
@@ -321,7 +333,7 @@ form p {
 
 // Style inspired by Anchor CMS fields
 input, textarea {
-	-webkit-appearance: textfield; // Stop webkit ugly styling
+	-webkit-appearance: none; // Stop webkit ugly styling
 	min-width: 231px; // Keeps fields going full width
 	min-height: 29px; // Keeps fields in check in Firefox
 	border: 0;
