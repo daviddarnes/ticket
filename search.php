@@ -6,23 +6,24 @@
 
 <header>
 	<?php $term = search_term(); // Whatever the searcher is looking for, added to the variable term
-		if (empty($term)) : // If nothing has been searched forÉ ?>
+		if (empty($term)) : // If nothing has been searched for... ?>
 		<h1><?php echo page_title(); ?></h1>
-	<?php else: // If something has been searched forÉ ?>
+	<?php else: // If something has been searched for... ?>
 		<h1>Results for &ldquo;<?php echo search_term(); ?>&rdquo;</h1>
 	<?php endif; // End of title ?>
 </header>
 
 <?php // Search results acts similar to the post loop
-	if(has_search_results() and (!empty($term))) : // If there are results for the search and something has been searched forÉ ?>
-		<?php while(search_results()): // While you have those resultsÉ ?>
-			<article>
-				<h2>
-					<a href="<?php echo article_url(); ?>" title="<?php echo article_title(); ?>"><?php echo article_title(); ?></a>
-				</h2>
-				<p><?php echo article_description(); ?></p>
-			</article>
-		<?php endwhile; // End if while ?>
+	if(has_search_results() and (!empty($term))) : // If there are results for the search and something has been searched for... ?>
+	<?php while(search_results()): // While you have those results... ?>
+		<article>
+			<h2>
+				<a href="<?php echo article_url(); ?>" title="<?php echo article_title(); ?>"><?php echo article_title(); ?></a>
+			</h2>
+			<p><?php echo article_description(); ?></p>
+		</article>
+	<?php endwhile; // End if while ?>
+
 	<?php if(has_pagination()): // Same as post.php pagination ?>
 	<nav class="pagination">
 		<div class="wrap">
@@ -32,7 +33,7 @@
 	</nav>
 	<?php endif; ?>
 
-<?php else: // If there was no resultsÉ ?>
+<?php else: // If there was no results... ?>
 	<form id="search" action="<?php echo search_url(); ?>" method="post">
 		<legend>Use the form below:</legend>
 		<p>
@@ -42,7 +43,7 @@
 			<input type="submit" value="Search">
 		</p>
 	</form>
-	<?php if (!empty($term)) : // // If something has been searched for but nothing was foundÉ  ?>
+	<?php if (!empty($term)) : // // If something has been searched for but nothing was found...  ?>
 		<p class="wrap">Unfortunately, there's no results for &ldquo;<?php echo search_term(); ?>&rdquo;. Did you spell everything correctly?</p>
 	<?php endif; ?>
 <?php endif; ?>
