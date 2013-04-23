@@ -14,9 +14,9 @@ Demo: http://demo.anchorthemes.com/ticket/
 Options
 -------
 
-Ticket has a custom field option within the article template, its simply called 'image'. To utilise it go to Extend > Custom Fields in your Anchor admin area. Click 'Create new field' on the right, and fill the options shown below:
+Ticket has a custom field option within the article.php and page.php templates, its simply called 'image'. To utilise it go to Extend > Custom Fields in your Anchor admin area. Click 'Create new field' on the right, and fill the options shown below:
 
-- Type: post
+- Type: post or page
 - Field: image
 - Unique key: image
 - Label: Image
@@ -24,7 +24,7 @@ Ticket has a custom field option within the article template, its simply called 
 - Width: 440
 - Height: 440
 
-When you're done click Save, and you're done! The most important fields are the type, because the code is only in the article.php template, and the width, because 440px is the width of the theme.
+When you're done click Save, and you're done! The most important field is the width, because 440px is the width of the theme.
 
 Finally there is the search.php template, if you want a search page on your site just create a page called… Search. Anchor CMS will pick up on the slug of the page and match it to the template in the theme.
 
