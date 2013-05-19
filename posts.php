@@ -33,7 +33,7 @@
 <?php // Normal loop for posts
 	if(has_posts()): // If there are any posts found...
 	?>
-	<?php while(posts()): // While you have those posts found... ?>
+	<?php while(posts()): // While you have those posts... ?>
 		<article>
 			<h2>
 				<a href="<?php echo article_url(); ?>" title="<?php echo article_title(); ?>"><?php echo article_title(); ?></a>
@@ -41,7 +41,7 @@
 			<p><?php echo article_description(); ?></p>
 		</article>
 	<?php endwhile; // End of while ?>
-<?php endif; // End of if and and loop ?>
+<?php endif; // End of if and loop ?>
 
 <aside>
 	<h3>Categories</h3>
